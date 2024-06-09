@@ -1,0 +1,7 @@
+Flask==2.3.2
+Flask-SQLAlchemy==3.0.3
+psycopg2-binary==2.9.6
+Flask-Migrate
+Flask-Script==2.0.5
+SQLAlchemy-serializer
+flask-reuploaded

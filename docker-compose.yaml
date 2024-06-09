@@ -1,0 +1,28 @@
+version: "3.9"
+services:
+  postgres:
+    image: postgres:13.3
+    environment:
+      POSTGRES_DB: "postgres"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+    ports:
+      - "5432:5432"
+    expose:
+      - 5432
+  flask:
+    build: ./backend
+    depends_on:
+      - postgres
+    links:
+      - postgres:postgres
+    container_name: backend-flask
+    environment:
+      - FLASK_ENV=development
+      - PYTHONUNBUFFERED=True
+    restart: on-failure
+    volumes:
+      - ./backend:/backend
+    ports:
+      - "8080:8080"
+    command: flask run --host=0.0.0.0 --port=8080
