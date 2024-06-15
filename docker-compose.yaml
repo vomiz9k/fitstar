@@ -5,11 +5,9 @@ services:
     environment:
       POSTGRES_DB: "postgres"
       POSTGRES_USER: "postgres"
-      POSTGRES_PASSWORD: "postgres"
+      POSTGRES_PASSWORD: ${POSTGRESQL_PASSWORD}
     ports:
-      - "5432:5432"
-    expose:
-      - 5432
+      - "127.0.0.1:5432:5432"
   flask:
     build: ./backend
     depends_on:
@@ -20,6 +18,9 @@ services:
     environment:
       - FLASK_ENV=development
       - PYTHONUNBUFFERED=True
+      - YA_GPT_FOLDER_ID=${YA_GPT_FOLDER_ID}
+      - YA_GPT_API_KEY=${YA_GPT_API_KEY}
+      - POSTGRESQL_PASSWORD=${POSTGRESQL_PASSWORD}
     restart: on-failure
     volumes:
       - ./backend:/backend
