@@ -41,7 +41,8 @@ def get_about_me_message(profile):
         (f'Мой возраст: {profile.age}. ' if profile.age else '') +
         (f'Мой вес: {profile.weight}. ' if profile.weight else '') +
         (f'Мой рост: {profile.height}. ' if profile.height else '') +
-        (f'Моя цель: {profile.goal}. ' if profile.goal else '')
+        (f'Моя цель: {profile.goal}. ' if profile.goal else '') +
+        (f'Мои пожелания к тренеру: {profile.expectations}. ' if profile.expectations else '')
     )
 
 

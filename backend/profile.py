@@ -100,4 +100,6 @@ def trainers(user_id):
             'is_recomended': recommended_trainer_id == user.id
         })
 
+    result = sorted(result, key=lambda x: 0 if x['is_recomended'] else 1)
+
     return result

@@ -23,6 +23,7 @@ class UserProfile(db.Model, SerializerMixin):
     weight = db.Column(db.Integer, nullable=True)
     height = db.Column(db.Integer, nullable=True)
     goal = db.Column(db.String(1024), nullable=True)
+    expectations = db.Column(db.String(1024), nullable=True)
 
 
 class TrainerProfile(db.Model, SerializerMixin):
